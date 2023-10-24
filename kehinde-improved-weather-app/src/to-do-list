@@ -1,0 +1,11 @@
+TO DO List:
+
+- Persistent Information
+    - Chosen Location, Weather Station, High and Low temperatures
+- Single Variable Information
+    - Sun Rise, Set times (done, may need to be remade to fix constant “Loading” issue)
+    - Other important information
+- Standalone Components/Pages
+    - Weather List (done)
+    - Standalone pages featuring lists with information, averages and graph(s).
+    
