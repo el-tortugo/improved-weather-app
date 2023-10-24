@@ -19,7 +19,7 @@ function CurrentTemp() {
   return (
     <div className='current-temp-container'>
       <h1>Current Temperature</h1>
-      {temp ? <h2> {temp}°C</h2> : <h2>Loading...</h2>}
+      {temp ? <h2> {temp}°F</h2> : <h2>Loading...</h2>}
     </div>
   );
 }
