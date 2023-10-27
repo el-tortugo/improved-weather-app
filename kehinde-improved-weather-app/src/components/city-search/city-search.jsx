@@ -1,18 +1,35 @@
-import React from 'react';
-import 'city-search.css';
-
+import React, { useState } from 'react';
+import './city-search.css';
 
 function CityInput(props) {
+  const [city, setCity] = useState('');
+  const [showInput, setShowInput] = useState(true);
+
   const handleCityChange = (event) => {
-    props.onCityChange(event.target.value);
+    setCity(event.target.value);
+  };
+
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      if (city.trim() !== '') {
+        props.onCityChange(city.trim());
+        setShowInput(false);
+      }
+    }
   };
 
   return (
-    <div>
+    <div className={`city-search ${showInput ? 'show' : 'hide'}`}>
+      <div className="prompt">
+        <p>Please enter a city:</p>
+      </div>
       <label>
         City:
-        <input type="text" value={props.city} onChange={handleCityChange} />
+        <input type="text" value={city} onChange={handleCityChange} onKeyPress={handleKeyPress} />
       </label>
+      <div className="prompt-details">
+        <p>Press Enter to submit. You must enter a valid location (eg. New York, NY) to continue.</p>
+      </div>
     </div>
   );
 }
