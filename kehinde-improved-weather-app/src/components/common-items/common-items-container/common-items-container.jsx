@@ -1,1 +1,0 @@
-// Will house all of the single variable items that will be displayed on the current weather page

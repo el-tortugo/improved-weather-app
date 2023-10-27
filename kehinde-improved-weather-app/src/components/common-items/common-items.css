@@ -1,0 +1,15 @@
+/* current-temp.jsx */
+.current-temp-container {
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    padding: 2px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .current-temp-container h2 {
+    margin-top: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+
+/* sun-rise.jsx */
