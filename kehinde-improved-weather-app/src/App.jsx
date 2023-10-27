@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import CityInput from './components/city-search/city-search'
 import './App.css'
 
