@@ -2,41 +2,83 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import './common-items.css';
 
-axios.get('https://api.weatherbit.io/v2.0/current', {
-    params: {
-        city: 'New York,NY',
-        key: 'YOUR_API_KEY'
-    }
-})
-    .then(response => {
-        const data = response.data;
-        const temperature = data.data[0].temp;
-        const sunrise = data.data[0].sunrise;
-        const sunset = data.data[0].sunset;
-        
-    })
-    .catch(error => {
-        console.log(error);
-    });
+const weatherApiUrl = 'https://api.weatherbit.io/v2.0/current';
 
-function Sunrise() {
-    return (
-        <div>
-            <h2>Sunrise Time: {response.sunrise}</h2>
-        </div>
-    )
+// Create a custom hook to fetch the weather data
+function useWeatherData(city) {
+  const [weatherData, setWeatherData] = useState(null);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    axios
+      .get(weatherApiUrl, {
+        params: {
+          city,
+          temp: 'F',
+          key: 'YOUR_API_KEY',
+        },
+      })
+      .then((response) => {
+        setWeatherData(response.data);
+      })
+      .catch((error) => {
+        setError(error);
+      });
+  }, [city]);
+
+  return { weatherData, error };
 }
-function Temperature() {
-    return (
-        <div>
-            <h2>Temperature: {response.temperature}</h2>
-        </div>
-    )
+
+// Create a Sunrise component
+function Sunrise({ weatherData }) {
+  if (error) {
+    return <div className="sun-rise-container" >Error fetching weather data</div>;
+  }
+
+  if (!weatherData) {
+    return <div className="sun-rise-container">Loading...</div>;
+  }
+
+  return (
+    <div className="sun-rise-container">
+      <h2>Sunrise Time: {weatherData.data[0].sunrise}</h2>
+    </div>
+  );
 }
-function Sunset() {
-    return (
-        <div>
-            <h2>Sunset Time: {response.sunset}</h2>
-        </div>
-    )
+
+// Temperature component
+function Temperature({ weatherData }) {
+  if (error) {
+    return <div className="temp-container" >Error fetching weather data</div>;
+  }
+
+  if (!weatherData) {
+    return <div className="temp-container" >Loading...</div>;
+  }
+
+  return (
+    <div className="temp-container">
+      <h2>Temperature: {weatherData.data[0].temp}</h2>
+    </div>
+  );
 }
+
+// Sunset component
+function Sunset({ weatherData }) {
+  if (error) {
+    return <div className="sunset-time-container" >Error fetching weather data</div>;
+  }
+
+  if (!weatherData) {
+    return <div className="sunset-time-container">Loading...</div>;
+  }
+
+  return (
+    <div className="sunset-time-container">
+      <h2>Sunset Time: {weatherData.data[0].sunset}</h2>
+    </div>
+  );
+}
+
+// Export the components as named exports
+export { Sunrise, Temperature, Sunset };
