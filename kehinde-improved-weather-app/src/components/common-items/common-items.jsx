@@ -7,9 +7,9 @@ const weatherApiUrl = 'https://api.weatherbit.io/v2.0/current';
 
 // Create a custom hook to fetch the weather data
 function useWeatherData(city) {
-  const { city } = React.useContext(CityContext);
+    const { city } = React.useContext(CityContext);
     const [weatherData, setWeatherData] = useState(null);
-  const [error, setError] = useState(null);
+    const [error, setError] = useState(null);
 
   useEffect(() => {
     axios
