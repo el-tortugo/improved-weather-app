@@ -18,6 +18,7 @@ function CityInput({onCityChange}) {
       }
     }
   };
+  
 
   return (
     <div className={`city-search ${showInput ? 'show' : 'hide'}`}>
