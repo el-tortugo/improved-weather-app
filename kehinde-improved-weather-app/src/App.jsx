@@ -1,14 +1,22 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import CityInput from './components/city-search/city-search'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [city, setCity] = useState('');
+
+  const handleCityChange = (newCity) => {
+    setCity(newCity);
+  };
 
   return (
-    pass
-  )
+    <div>
+      <CityInput onCityChange={handleCityChange} />
+      {/* Render other components here */}
+      {city && <h1>Weather for {city}</h1>}
+      {/* Render other components here */}
+    </div>
+  );
 }
 
-export default App
+export default App;
