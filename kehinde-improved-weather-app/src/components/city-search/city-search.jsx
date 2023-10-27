@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './city-search.css';
+import { CityContext } from '../common-items/ci-context';
 
-function CityInput(props) {
+function CityInput({onCityChange}) {
   const [city, setCity] = useState('');
   const [showInput, setShowInput] = useState(true);
 
