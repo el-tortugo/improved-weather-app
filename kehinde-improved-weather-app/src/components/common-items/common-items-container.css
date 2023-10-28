@@ -1,0 +1,22 @@
+.common-items-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #222;
+    border: 1px solid #00ffff;
+    padding: 10px;
+  }
+  
+  .common-items-container .common-item {
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .common-items-container .common-item:hover {
+    background-color: #00ffff;
+  }
+  
