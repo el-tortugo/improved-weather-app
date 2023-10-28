@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './city-search.css';
 import { CityContext } from '../common-items/ci-context';
 
-function CityInput({onCityChange}) {
+function CityInput({ setCity }) {
   const [city, setCity] = useState('');
   const [showInput, setShowInput] = useState(true);
 
