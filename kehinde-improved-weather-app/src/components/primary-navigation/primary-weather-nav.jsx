@@ -1,20 +1,26 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './primary-weather-nav.css';
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import CommonItemsContainer from "./common-items-container";
+import SevenDayWeather from "./seven-day-weather";
 
-function BasicWeatherNav() {
-    return (
-        <nav>
-            <ul>
-                <li>
-                    <Link className="nav-link" to="/">Home</Link>
-                </li>
-                <li>
-                    <Link className="nav-link" to="/weather">Weather</Link>
-                </li>
-            </ul>
-        </nav>
-    );
-}
+const PrimaryWeatherNav = () => {
+  return (
+    <nav>
+      <Link to="/common-items-container">Common Items</Link>
+      <Link to="/seven-day-weather">7 Day Weather</Link>
+    </nav>
+  );
+};
 
-export default BasicWeatherNav;
+const App = () => {
+  return (
+    <BrowserRouter>
+      <PrimaryWeatherNav />
+      <Routes>
+        <Route path="/common-items-container" element={<CommonItemsContainer />} />
+        <Route path="/seven-day-weather" element={<SevenDayWeather />} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
+
+export default App;
