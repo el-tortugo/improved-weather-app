@@ -15,6 +15,9 @@ function CityInput({onCityChange}) {
       if (city.trim() !== '') {
         props.onCityChange(city.trim());
         setShowInput(false);
+        const { city } = React.useContext(CityContext);
+        city = event.target.value;
+        CityContext.Provider.value = {city};
       }
     }
   };
