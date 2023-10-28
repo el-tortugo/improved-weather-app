@@ -30,7 +30,7 @@ function CityInput({ setCity }) {
       </div>
       <label>
         City:
-        <input type="text" value={city} onChange={handleCityChange} onKeyPress={handleKeyPress} />
+        <input type="text" value={city} onChange={handleCityChange} onKeyDown={handleKeyPress} />
       </label>
       <div className="prompt-details">
         <p>Press Enter to submit. You must enter a valid location (eg. New York, NY) to continue.</p>
