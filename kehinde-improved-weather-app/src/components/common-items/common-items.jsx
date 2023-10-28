@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import {CityConsumer} from 'ci-context';
-import './common-items.css';
+import {CityContext} from 'ci-context';
 
 const weatherApiUrl = 'https://api.weatherbit.io/v2.0/current';
 
