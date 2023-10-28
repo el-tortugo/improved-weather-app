@@ -1,1 +1,14 @@
-// Will house all of the single variable items that will be displayed on the current weather page
+import React from 'react';
+import { Temperature, Sunrise, Sunset } from './common-items';
+
+function CommonItemsContainer() {
+  return (
+    <div className="common-items-container">
+      <Temperature />
+      <Sunrise />
+      <Sunset />
+    </div>
+  );
+}
+
+export default CommonItemsContainer;
