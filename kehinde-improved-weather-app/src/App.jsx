@@ -1,19 +1,17 @@
-import React from 'react';
-import { useState } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import CityInput from './components/city-search/city-search';
-import './App.css';
-import { CityProvider } from './components/common-items/ci-context';
 import PrimaryWeatherNav from './components/primary-navigation/primary-weather-nav';
+import { CityProvider, CityContext } from './common-items/ci-context';
 
 function App() {
-  const [city, setCity] = useState('');
+  const { city } = useContext(CityContext);
 
   return (
     <Router>
-      <CityProvider value={{ city, setCity }}>
+      <CityProvider> {/* Wrap your components with CityProvider */}
         <div>
-          <CityInput onCityChange={handleCityChange} />
+          <CityInput />
           <PrimaryWeatherNav />
           {/* Render other components here */}
           {city && <h1>Weather for {city}</h1>}
@@ -23,3 +21,5 @@ function App() {
     </Router>
   );
 }
+
+export default App;

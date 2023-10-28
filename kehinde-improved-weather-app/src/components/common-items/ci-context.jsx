@@ -1,6 +1,20 @@
-import React from 'react';
+// CityContext.js
+import React, { createContext, useContext, useState } from 'react';
 
-const CityContext = React.createContext();
+const CityContext = createContext();
 
-export const CityProvider = CityContext.Provider;
-export const CityConsumer = CityContext.Consumer;
+const CityProvider = ({ children }) => {
+  const [city, setCity] = useState(''); // Provide your initial value here
+
+  const updateCity = (newCity) => {
+    setCity(newCity);
+  };
+
+  return (
+    <CityContext.Provider value={{ city, updateCity }}>
+      {children}
+    </CityContext.Provider>
+  );
+};
+
+export { CityProvider, CityContext };

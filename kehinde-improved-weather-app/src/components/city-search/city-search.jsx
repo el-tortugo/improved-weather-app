@@ -1,10 +1,5 @@
-import React, { useState } from 'react';
-import './city-search.css';
-import { CityContext } from '../common-items/ci-context';
-
-function CityInput({ setCity }) {
-  const [city, setCity] = useState('');
-  const [showInput, setShowInput] = useState(true);
+const CityInput = () => {
+  const { city, setCity } = useContext(CityContext);
 
   const handleCityChange = (event) => {
     setCity(event.target.value);
@@ -13,15 +8,11 @@ function CityInput({ setCity }) {
   const handleKeyPress = (event) => {
     if (event.key === 'Enter') {
       if (city.trim() !== '') {
-        props.onCityChange(city.trim());
-        setShowInput(false);
-        const { city } = React.useContext(CityContext);
-        city = event.target.value;
-        CityContext.Provider.value = {city};
+        // Update the city context value.
+        setCity(city.trim());
       }
     }
   };
-  
 
   return (
     <div className={`city-search ${showInput ? 'show' : 'hide'}`}>
@@ -37,6 +28,6 @@ function CityInput({ setCity }) {
       </div>
     </div>
   );
-}
+};
 
 export default CityInput;

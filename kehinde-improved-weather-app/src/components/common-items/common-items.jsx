@@ -1,11 +1,10 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import {CityContext} from 'ci-context';
 
 const weatherApiUrl = 'https://api.weatherbit.io/v2.0/current';
 
 // Create a custom hook to fetch the weather data
-function useWeatherData(city) {
+function useWeatherData() {
     const { city } = React.useContext(CityContext);
     const [weatherData, setWeatherData] = useState(null);
     const [error, setError] = useState(null);
