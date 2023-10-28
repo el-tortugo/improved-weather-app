@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import CityInput from './components/city-search/city-search';
 import './App.css';
-import { CityProvider } from './context/ci-context';
-import PrimaryWeatherNav from "./primary-weather-nav";
+import { CityProvider } from './components/common-items/ci-context';
+import PrimaryWeatherNav from './components/primary-navigation/primary-weather-nav';
 
 function App() {
   const [city, setCity] = useState('');
