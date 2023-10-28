@@ -23,7 +23,7 @@ dist-ssr
 *.sln
 *.sw?
 to-do-list
-old-iterations/*
+old-iterations/
 
 
 
